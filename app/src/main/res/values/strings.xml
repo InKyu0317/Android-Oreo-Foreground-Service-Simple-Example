@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidOreoForegroundTest</string>
+    <string name="text_name_notification">Notification Name</string>
+</resources>
