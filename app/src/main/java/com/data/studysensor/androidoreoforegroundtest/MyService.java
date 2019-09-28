@@ -63,8 +63,8 @@ public class MyService extends Service {
                 Log.d(TAG, "Received user starts foreground intent");
                 startForeground(Constants.NOTIFICATION_ID_FOREGROUND_SERVICE, prepareNotification());
 
+                // Start the locker receiver
                 final ScreenActionReceiver screenactionreceiver = new ScreenActionReceiver();
-
                 registerReceiver(screenactionreceiver, screenactionreceiver.getFilter());
 
                 connect();
