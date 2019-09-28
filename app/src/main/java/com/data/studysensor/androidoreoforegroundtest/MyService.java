@@ -62,6 +62,11 @@ public class MyService extends Service {
             case Constants.ACTION.START_ACTION:
                 Log.d(TAG, "Received user starts foreground intent");
                 startForeground(Constants.NOTIFICATION_ID_FOREGROUND_SERVICE, prepareNotification());
+
+                final ScreenActionReceiver screenactionreceiver = new ScreenActionReceiver();
+
+                registerReceiver(screenactionreceiver, screenactionreceiver.getFilter());
+
                 connect();
                 break;
             case Constants.ACTION.STOP_ACTION:
