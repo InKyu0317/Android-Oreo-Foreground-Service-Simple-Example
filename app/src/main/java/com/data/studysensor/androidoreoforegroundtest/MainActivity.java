@@ -2,6 +2,7 @@ package com.data.studysensor.androidoreoforegroundtest;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,12 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent startIntent = new Intent(MainActivity.this, MyService.class);
                 startIntent.setAction(Constants.ACTION.START_ACTION);
-                startService(startIntent);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    startForegroundService(startIntent);
+                }else{
+                    startService(startIntent);
+                }
             }
         });
         stopButton.setOnClickListener(new View.OnClickListener() {
